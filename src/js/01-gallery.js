@@ -24,19 +24,20 @@ function creatingImageGallery(pictures) {
     }).join('');
 };
 
-const basicLightbox = require('basiclightbox');
-import * as basicLightbox from 'basiclightbox';
+// const basicLightbox = require('basiclightbox') 
+// import * as basicLightbox from 'basiclightbox';
 
+// const instance = basicLightbox.create(`
+//     <div class="modal">
+//         <p>
+//             Your first lightbox with just a few lines of code.
+//             Yes, it's really that simple.
+//         </p>
+//     </div>
+// `)
 
-const instance = basicLightbox.create(`
-    <div class="modal">
-        <p>
-            Your first lightbox with just a few lines of code.
-            Yes, it's really that simple.
-        </p>
-    </div>
-`)
-
-instance.show()
+// instance.show()
 
 console.log(galleryItems);
+
+
