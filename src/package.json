@@ -15,5 +15,8 @@
   "bugs": {
     "url": "https://github.com/Dessed/goit-js-hw-07/issues"
   },
-  "homepage": "https://github.com/Dessed/goit-js-hw-07#readme"
+  "homepage": "https://github.com/Dessed/goit-js-hw-07#readme",
+  "dependencies": {
+    "basiclightbox": "^5.0.4"
+  }
 }
