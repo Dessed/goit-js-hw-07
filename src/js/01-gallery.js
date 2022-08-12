@@ -2,7 +2,9 @@ import { galleryItems } from './gallery-items.js';
 
 // Change code below this line
 const gallery = document.querySelector('.gallery');
+
 const fotoMarkup = creatingImageGallery(galleryItems);
+// console.log(fotoMarkup);
 
 gallery.insertAdjacentHTML('beforeend', fotoMarkup);
 
@@ -14,7 +16,7 @@ function creatingImageGallery(pictures) {
           <img
             class="gallery__image"
             src="${preview}"
-            data-source="large-image.jpg"
+            data-source="${original}"
             alt="${description}"
           />
         </a>
@@ -23,20 +25,44 @@ function creatingImageGallery(pictures) {
 };
 
 
+gallery.addEventListener('click', onGalleryBasicLightbox)
+    
 
-  gallery.addEventListener('click', (evt) => {
-    evt.preventDefault();
-console.log(evt.target.classList);
-    let pic = evt.target.src;
-    // console.log(evt.target.href);
-    // console.log(evt.target.classList.contains('gallery__link'));
-      basicLightbox.create(`
-      <img width="1400" height="900" src="${pic}">
-    `).show()
-  });
 
-const pic = galleryItems.map(({preview, original, description}) => {
-  return original;
-})
+function onGalleryBasicLightbox (evt) {
+  evt.preventDefault();
 
-console.log(pic);
+  let originalPicture = evt.target.dataset.source;
+
+//   basicLightbox.create(`
+//   <img width="1400" height="900" src="${originalPicture}">
+// `).show()
+
+  const html = `
+  <img width="1400" height="900" src="${originalPicture}">
+	`
+
+	basicLightbox.create(html, {
+		onClose: document.addEventListener("keydown", function (evt) {
+      if (evt.key === `Escape`) {
+        console.log("key: ", evt.key);
+        return true;
+        
+      }
+      return false;
+    })
+	}).show()
+}
+
+
+// document.addEventListener("keydown", closeLightboxButton)
+
+// function closeLightboxButton(evt) {
+//   if (evt.key === `Escape`) {
+//     console.log("key: ", evt.key);
+//     return true;
+    
+//   }
+//   return false;
+// }
+
