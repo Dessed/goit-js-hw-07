@@ -25,6 +25,10 @@ function onGallerySimpleLightbox (evt) {
    {captionsData: 'alt',
     captionDelay: 250,
     navText: ['←','→']});
+
+    lightbox.open(evt.target.parentElement);
+
+    lightbox.on('closed.simplelightbox', () => lightbox.destroy());
 };
 
 
